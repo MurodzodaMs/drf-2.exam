@@ -29,6 +29,7 @@ class Module(models.Model):
     
 class Task(models.Model):
     title = models.CharField(max_length=100)
+    module = models.ForeignKey(Module, related_name='tasks', on_delete=models.CASCADE, null=True, blank=True)
     task_text = models.TextField(blank=True, null=True)
     is_active = models.BooleanField(default=True)
 
